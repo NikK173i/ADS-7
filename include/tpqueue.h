@@ -18,10 +18,10 @@ class TPQueue {
      int cnt;
 
  public:
-     TPQueue(): head(nullptr), tail(nullptr), cnt(0){}
-     void pushback(SYM arr) {
+     TPQueue(): head(nullptr), tail(nullptr), cnt(0) {}
+     void push(SYM arr) {
          if (cnt == 0) {
-             head= new SYM;
+             head = new SYM;
              head->ch = arr.ch;
              head->prior = arr.prior;
              head->next = nullptr;
@@ -71,17 +71,16 @@ class TPQueue {
              }
          }
      }
-     SYM popup() {
+     SYM pop() {
          if (cnt == 0) {
              SYM arr{ '0', -1 };
              return arr;
-         }
-         else {
+         } else {
              SYM tmp;
              tmp.ch = head->ch;
              tmp.prior = head->prior;
              head = head->next;
-             count--;
+             cnt--;
              return tmp;
          }
      }
